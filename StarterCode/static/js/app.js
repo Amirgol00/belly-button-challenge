@@ -21,6 +21,8 @@ function init(data) {
 function updateCharts(sample, data) {
   // Filter data for the selected sample
   var selectedSample = data.samples.filter(obj => obj.id === sample)[0];
+  var metadata = data.metadata.filter(obj => obj.id.toString() === sample)[0];
+  var wfreq = metadata.wfreq;
 
   // Bar chart data
   var barData = [{
@@ -36,6 +38,7 @@ function updateCharts(sample, data) {
     title: "Top 10 OTUs Found",
     margin: { t: 30, l: 150 }
   };
+  Plotly.newPlot("bar", barData, barLayout);
 
   // Bubble chart data
   var bubbleData = [{
@@ -59,16 +62,51 @@ function updateCharts(sample, data) {
     margin: { t: 30}
   };
 
-  // Plot the charts
-  Plotly.newPlot('bar', barData, barLayout);
-  Plotly.newPlot('bubble', bubbleData, bubbleLayout);
+  Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+
+  var gaugeData = [{
+    type: "indicator",
+    mode: "gauge+number",
+    value: wfreq,
+    title: { text: "Belly Button Washing Frequency<br>Scrubs per Week", font: { size: 28 } },
+    gauge: {
+      axis: { range: [null, 9], tickwidth: 1, tickcolor: "red" },
+      bar: { color: "brown" },
+      steps: [
+        { range: [0, 1], color: "rgb(248, 243, 236)" },
+        { range: [1, 2], color: "rgb(244, 241, 229)" },
+        { range: [2, 3], color: "rgb(233, 230, 202)" },
+        { range: [3, 4], color: "rgb(229, 231, 179)" },
+        { range: [4, 5], color: "rgb(213, 228, 157)" },
+        { range: [5, 6], color: "rgb(183, 204, 146)" },
+        { range: [6, 7], color: "rgb(140, 191, 136)" },
+        { range: [7, 8], color: "rgb(138, 187, 143)" },
+        { range: [8, 9], color: "rgb(133, 180, 138)" }
+      ],
+      threshold: {
+        line: { color: "red", width: 4 },
+        thickness: 0.75,
+        value: 9
+      }
+    }
+  }];
+
+  var gaugeLayout = {
+    width: 600,
+    height: 500,
+    margin: { t: 0, b: 0 }
+  };
+
+  Plotly.newPlot('gauge', gaugeData, gaugeLayout);
+
+
+
 
   // Display the sample metadata
-  var metadata = data.metadata.filter(obj => obj.id.toString() === sample)[0];
   var displayPanel = d3.select("#sample-metadata");
-  displayPanel.html(""); // Clear the panel
+  displayPanel.html("");
   Object.entries(metadata).forEach(([key, value]) => {
-    displayPanel.append("h6").text(`${key.toUpperCase()}: ${value}`);
+    displayPanel.append("h6").text(`${key}: ${value}`);
   });
 }
 
