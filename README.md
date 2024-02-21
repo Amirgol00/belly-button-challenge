@@ -7,13 +7,19 @@ The Belly Button Biodiversity project, launched in January 2011, aims to explore
 
 ## Features
 **Test Subject ID Selector**: Users can select a test subject ID to display demographic information and visualize the microbial species found in the selected individual's navel.
+
 **Demographic Information Panel**: Displays selected test subject's demographic details.
+
 **Bar Chart**: Illustrates the top 10 OTUs found in the selected individual.
+
 **Bubble Chart**: Visualizes the microbial species by their OTU IDs and sample values, highlighting the biodiversity in a colorful, interactive format.
+
 **Gauge Chart**: Shows the belly button washing frequency of the selected individual, representing a unique aspect of human hygiene behavior.
 
+
 ## Getting Started
-To run this dashboard locally, clone this repository to your machine and us the live server extension to run the html. 
+To run this dashboard locally, clone this repository to your machine and us the live server extension to run the HTML. 
+
 
 # Technologies Used
 HTML for dashboard structure and styling.
