@@ -17,13 +17,20 @@ To run this dashboard locally, clone this repository to your machine and us the 
 
 # Technologies Used
 HTML for dashboard structure and styling.
+
 JavaScript for dynamic content and interactivity.
+
 D3.js for data manipulation and event handling.
+
 Plotly.js for creating interactive charts.
+
 live server ext for VS code
 
 **Project Specific Notes**:
 
 -  I made a small change to the index.html provided in the starter code to change the color of the header for "Demographic Info" to blue. So that it is more similar to the sample images of the dashboard in the instructions.
 -  The plotly link provided for creating the gauge chart does not have a similar example to the gauge chart shown in the module (lack of a arrow/needle). Therefore, I used plotly documentation and CHATGPT to help create with creating the gradient of green color on the chart using RGB instead of solid colors. However, I was not sure how to add the pointer needle.
--  The json was extracted from the URL provided and it is set as const at the top of the code. 
+-  The json was extracted from the URL provided and it is set as const at the top of the code.
+
+## Github Pages:
+**This dashboard is deployed on github pages and you can access it at this URL https://amirgol00.github.io/
