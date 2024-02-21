@@ -39,4 +39,4 @@ live server ext for VS code
 -  The json was extracted from the URL provided and it is set as const at the top of the code.
 
 ## Github Pages:
-**This dashboard is deployed on github pages and you can access it at this URL https://amirgol00.github.io/
+**This dashboard is deployed on github pages and you can access it at this URL https://amirgol00.github.io/**
